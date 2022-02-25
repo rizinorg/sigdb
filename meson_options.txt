@@ -1,0 +1,1 @@
+option('sigdb_path', type: 'string', value: '', description: 'Install path for sigdb files')
