@@ -1,0 +1,30 @@
+name: Verify and build releases
+
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+
+jobs:
+  linux:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v1
+      with:
+        python-version: 3.9.x
+    - name: apt dependencies
+      run: sudo pip3 install meson ninja
+    - name: install sigdb
+      run: |
+        mkdir installdir
+        meson --prefix=$PWD -Dsigdb_path=installdir build
+        sudo ninja -C build install
+        find installdir
+    - name: verify the installed files are the same
+      run: .scripts/verify-sigs-install.sh
+    - uses: actions/upload-artifact@v2
+      with:
+        name: rizin_sigdb.zip
+        path: installdir/*
