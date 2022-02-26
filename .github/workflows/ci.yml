@@ -3,7 +3,7 @@ name: Verify and build releases
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
 
 jobs:
