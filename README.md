@@ -1,8 +1,8 @@
-# Rizin Signature Database (Complete)
+# Rizin Signature Database
 
-This is the complete database from which the .sig files (generated from https://github.com/rizinorg/sigdb-source).
+This is the main database which contains the FLIRT `.sig` files (generated from https://github.com/rizinorg/sigdb-source).
 
-Please commit only deflated sig files in here and sig files must be reproducible from sigdb-source.
+Please commit only deflated sig files in here and be sure they are reproducible from sigdb-source.
 
 # License
 
